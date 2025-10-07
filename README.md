@@ -26,6 +26,7 @@ Modified by IPEM (UGent)
    - Install and restart computer
 
 3. **Run Installation Script**
+   - Rename install_prerequisites.txt to install.bat
    ```batch
    install.bat
    ```
