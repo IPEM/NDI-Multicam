@@ -1,7 +1,10 @@
 # NDI Multi-Camera Synchronization System
 
 A distributed camera capture system using OSC timecode synchronization and NDI streaming over LAN.
+
 Created with Claude, https://claude.ai/public/artifacts/cab042b0-440e-4ac3-99ce-a7c795bdce9f
+
+Modified by IPEM (UGent)
 
 ## System Architecture
 
