@@ -1,0 +1,87 @@
+@echo off
+echo ============================================================
+echo NDI Camera System - Prerequisites Installation
+echo ============================================================
+echo.
+
+REM Check if Python is installed
+python --version >nul 2>&1
+if errorlevel 1 (
+    echo ERROR: Python is not installed!
+    echo.
+    echo Please install Python 3.8 or later from:
+    echo https://www.python.org/downloads/
+    echo.
+    echo Make sure to check "Add Python to PATH" during installation
+    pause
+    exit /b 1
+)
+
+echo Python detected:
+python --version
+echo.
+
+REM Upgrade pip
+echo Upgrading pip...
+python -m pip install --upgrade pip
+echo.
+
+REM Install OpenCV
+echo Installing OpenCV...
+pip install opencv-python
+echo.
+
+REM Install NumPy
+echo Installing NumPy...
+pip install numpy
+echo.
+
+REM Install python-osc for OSC communication
+echo Installing python-osc...
+pip install python-osc
+echo.
+
+REM Install NDI Python wrapper
+echo Installing NDI Python library...
+pip install ndi-python
+echo.
+
+REM Check if NDI Runtime is installed
+echo.
+echo ============================================================
+echo IMPORTANT: NDI Runtime Installation
+echo ============================================================
+echo.
+echo The NDI Runtime must be installed separately.
+echo.
+echo Please download and install NDI Tools (which includes the runtime):
+echo https://ndi.tv/tools/
+echo.
+echo After downloading:
+echo 1. Run the NDI Tools installer
+echo 2. Follow the installation wizard
+echo 3. Restart your computer if prompted
+echo.
+echo The NDI Runtime is required for both transmitter and receiver!
+echo ============================================================
+echo.
+
+REM Create directories
+echo Creating directories...
+if not exist "recordings" mkdir recordings
+echo.
+
+echo ============================================================
+echo Installation Complete!
+echo ============================================================
+echo.
+echo Python packages installed:
+pip list | findstr "opencv numpy python-osc ndi"
+echo.
+echo Next steps:
+echo 1. Install NDI Runtime from https://ndi.tv/tools/
+echo 2. Restart your computer
+echo 3. Run transmitter.py on each camera laptop
+echo 4. Run receiver.py on the recording computer
+echo.
+pause
